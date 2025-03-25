@@ -4,25 +4,24 @@ LiveSketch is a **real-time** collaborative drawing application built with **Tur
 
 ## 🚀 Getting Started
 
-### 1. Prerequisites
+### 1️⃣ Prerequisites
 Ensure you have the following installed:
 - **Node.js** (>=18.x)
 - **pnpm** (package manager)
 - **PostgreSQL** (if using a database)
 
-### 2. Install Dependencies
+### 2️⃣ Install Dependencies
 Run the following command to install all dependencies:
-```sh
 pnpm install
 
 
-🛠 Tech Stack
+### 🛠 Tech Stack
 Backend	    Node.js, Express, WebSockets
 Database	PostgreSQL (via Prisma ORM)
 Real-time	WebSocket
 Monorepo	Turborepo
 
-📂 Environment Variables
+### 📂 Environment Variables
 DATABASE_URL=postgres://user:password@localhost:5432/livesketch
 PORT=5000  # Change accordingly
 

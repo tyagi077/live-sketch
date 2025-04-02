@@ -4,7 +4,7 @@ import { Github, Twitter, Menu, PenLine, Share2, Download, Lock, Users, Pencil, 
 import { useRouter } from 'next/navigation';
 import { AuthContext } from './context/AuthContext';
 import { toast } from 'react-toastify';
-import Image from 'next/image';
+
 
 
 export default function Home() {
@@ -136,13 +136,7 @@ export default function Home() {
               </div>
 
               <div className="mt-10 -mx-4 relative lg:mt-0">
-                <Image
-                  className="relative mx-auto rounded-lg shadow-lg"
-                  src="/my-app-img.jpeg"
-                  alt="Collaborative drawing demonstration"
-                  width={700}
-                  height={300} 
-                />
+                
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-lg"></div>
               </div>
             </div>

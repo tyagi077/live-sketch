@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-app.post("/signup", async (req, res) => {
+app.post("/Signup", async (req, res) => {
   const parsedData = createUserSchema.safeParse(req.body);
   if (!parsedData.success) {
     res.json({
@@ -46,7 +46,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/signin", async (req, res) => {
+app.post("/Signin", async (req, res) => {
   const parsedData = SiginSchema.safeParse(req.body);
   
   if (!parsedData.success) {

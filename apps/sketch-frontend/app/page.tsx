@@ -4,20 +4,19 @@ import { Github, Twitter, Menu, PenLine, Share2, Download, Lock, Users, Pencil, 
 import { useRouter } from 'next/navigation';
 import { AuthContext } from './context/AuthContext';
 import { toast } from 'react-toastify';
+import Image from 'next/image';
 
 
 export default function Home() {
 
   const router = useRouter();
-
-
   const Authcontext = useContext(AuthContext)
   const user = Authcontext?.user
   const setUser = Authcontext?.setUser
 
-  const handleLogout=()=>{
+  const handleLogout = () => {
     toast.success("You have been logged out successfully.", {
-      position: "top-center", 
+      position: "top-center",
       pauseOnHover: false,
       pauseOnFocusLoss: true,
     });
@@ -41,17 +40,17 @@ export default function Home() {
                 <a href="#" className="text-gray-400 hover:text-gray-200">About</a>
                 <a href="#" className="text-gray-400 hover:text-gray-200">Blog</a>
                 <a href="#" className="text-gray-400 hover:text-gray-200">Libraries</a>
-                <button onClick={() => router.push(`${user ? '/room' : '/auth/signin'}`)} className="bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition">
+                <button onClick={() => router.push(`${user ? '/room' : '/auth/Signin'}`)} className="bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition">
                   Start Drawing
                 </button>
 
               </div>
-             {user?<div onClick={handleLogout} className='flex items-center justify-center bg-[#0F2139] p-2 rounded-md hover:bg-gray-300 cursor-pointer '>
+              {user ? <div onClick={handleLogout} className='flex items-center justify-center bg-[#0F2139] p-2 rounded-md hover:bg-gray-300 cursor-pointer '>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#0077FF" className="size-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
                 </svg>
 
-              </div>:''}
+              </div> : ''}
             </div>
 
 
@@ -75,7 +74,7 @@ export default function Home() {
           </p>
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <div className="rounded-md shadow">
-              <button onClick={() => router.push(`${user ? '/room' : '/auth/signin'}`)} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+              <button onClick={() => router.push(`${user ? '/room' : '/auth/Signin'}`)} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
                 Create New Board
               </button>
             </div>
@@ -93,7 +92,7 @@ export default function Home() {
                   Real-time collaboration that just works
                 </h3>
                 <p className="mt-3 text-lg text-gray-500">
-                  Watch as your teammates' cursors move and drawings appear instantly.
+                  Watch as your teammates cursors move and drawings appear instantly.
                   No lag, no conflicts, just seamless collaboration powered by WebSocket technology.
                 </p>
 
@@ -137,10 +136,12 @@ export default function Home() {
               </div>
 
               <div className="mt-10 -mx-4 relative lg:mt-0">
-                <img
+                <Image
                   className="relative mx-auto rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1600267185393-e158a98703de?auto=format&fit=crop&w=1400&q=80"
+                  src="/my-app-img.jpeg"
                   alt="Collaborative drawing demonstration"
+                  width={700}
+                  height={300} 
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-lg"></div>
               </div>
@@ -168,7 +169,7 @@ export default function Home() {
             </div>
             <h3 className="text-lg font-medium text-white">Export Anytime</h3>
             <p className="mt-2 text-base text-gray-500">
-              Download your work in multiple formats when you're done collaborating.
+              Download your work in multiple formats when you are done collaborating.
             </p>
           </div>
 

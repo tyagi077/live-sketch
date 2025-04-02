@@ -3,18 +3,12 @@
 import { HTTP_BACKEND } from "@/config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { toast } from "react-toastify";
-import { AuthContext } from "../context/AuthContext";
+import Link from "next/link";
 
 
 export default function Room() {
-
-    const Authcontext=useContext(AuthContext)
-    const user = Authcontext?.user
-    const roomAdmin=Authcontext?.roomAdmin
-    const setRoomAdmin=Authcontext?.setRoomAdmin
-
 
     const [roomName,setRoomName]=useState("");
     const [submit,setSubmit]=useState(false);
@@ -68,28 +62,37 @@ export default function Room() {
                 setSubmit(false)
             }
 
-        }catch(error:any){
-            if (error.response) {
-                toast.error(error.response.data.message,{
+        }catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                if (error.response) {
+                    toast.error(error.response.data.message, {
+                        pauseOnHover: false,
+                        pauseOnFocusLoss: false,
+                    });
+                } else if (error.request) {
+                    toast.error("No response from server. Please try again later.", {
+                        pauseOnHover: false,
+                        pauseOnFocusLoss: false,
+                    });
+                }
+                setSubmit(false);
+            } else if (error instanceof Error) {
+                // Handle non-Axios errors, e.g., general JavaScript errors
+                toast.error(error.message, {
                     pauseOnHover: false,
                     pauseOnFocusLoss: false,
                 });
-                setSubmit(false)
-            } else if (error.request) {
-                toast.error("No response from server. Please try again later.",{
-                    pauseOnHover: false,
-                    pauseOnFocusLoss: false,
-                });
-                setSubmit(false)
+                setSubmit(false);
             } else {
-                toast.error(error.message,{
+                // Handle cases where error is not an instance of Error or AxiosError
+                toast.error("An unknown error occurred", {
                     pauseOnHover: false,
                     pauseOnFocusLoss: false,
                 });
-                setSubmit(false)
+                setSubmit(false);
             }
         }
-
+        
         setRoomName("")
     }
 
@@ -141,21 +144,22 @@ export default function Room() {
                 setCreateRoomButton(false)
             }
 
-        }catch(error:any){
+        }catch(error:unknown){
+            if (axios.isAxiosError(error)) {
             if (error.response) {
                 toast.error(error.response.data.message,{
                     pauseOnHover: false,
                     pauseOnFocusLoss: false,
                 });
                 setCreateRoomButton(false)
-            } else if (error.request) {
+            }} else if (error instanceof Error) {
                 toast.error("No response from server. Please try again later.",{
                     pauseOnHover: false,
                     pauseOnFocusLoss: false,
                 });
                 setCreateRoomButton(false)
             } else {
-                toast.error(error.message,{
+                toast.error("An unknown error occurred",{
                     pauseOnHover: false,
                     pauseOnFocusLoss: false,
                 });
@@ -243,7 +247,7 @@ export default function Room() {
 
         </div>
         <div className="text-center text-sm  text-muted-foreground mt-15">
-            <p>Need help? <a href="#" className="text-blue-600 hover:underline">View our FAQ</a> or <a href="/" className="text-blue-600 hover:underline">return to home</a></p>
+            <p>Need help? <Link href="#" className="text-blue-600 hover:underline">View our FAQ </Link> or <Link href="/" className="text-blue-600 hover:underline">return to home</Link></p>
         </div>
 
     </div>

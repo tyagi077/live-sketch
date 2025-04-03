@@ -20,12 +20,12 @@ export default function Signin() {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/auth/Signup");
+    router.push("/auth/signup");
   };
 
   const formSubmit = async (data: FormValues) => {
     try {
-      const response = await axios.post(`${HTTP_BACKEND}/Signin`, {
+      const response = await axios.post(`${HTTP_BACKEND}/signin`, {
         username: data.Email,
         password: data.password
       });

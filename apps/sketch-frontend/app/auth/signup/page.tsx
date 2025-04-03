@@ -21,12 +21,12 @@ export default function Signup() {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/auth/Signin");
+    router.push("/auth/signin");
   };
 
   const formSubmit = async (data: FormValues) => {
     try {
-      const response = await axios.post(`${HTTP_BACKEND}/Signup`, {
+      const response = await axios.post(`${HTTP_BACKEND}/signup`, {
         username: data.Email,
         password: data.password,
         name: data.Name
@@ -34,7 +34,7 @@ export default function Signup() {
 
       if (response.data.status) {
         toast.success(response.data.message);
-        router.push("/auth/Signin");
+        router.push("/auth/signin");
       } else {
         toast.error(response.data.message);
       }

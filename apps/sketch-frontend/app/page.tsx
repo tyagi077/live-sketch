@@ -27,7 +27,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#111723]">
-      {/* Navigation */}
       <nav className="border-b border-gray-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="flex justify-between h-16 items-center">
@@ -61,7 +60,6 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <h1 className="text-4xl tracking-tight font-extrabold  sm:text-5xl md:text-6xl">
@@ -82,7 +80,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Live Collaboration Demo */}
+     
       <div className="bg-gray-850 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
@@ -136,15 +134,17 @@ export default function Home() {
               </div>
 
               <div className="mt-10 -mx-4 relative lg:mt-0">
+                <img src="./my-app-img.jpeg" alt="" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-lg">
                 
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-lg"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Features Grid */}
+  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="flex flex-col items-center text-center">
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
+   
       <footer className="bg-[#111723] border-t border-gray-400">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">

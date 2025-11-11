@@ -40,3 +40,6 @@ pnpm run dev
 
 ### 6️⃣ Running the Entire Monorepo
 pnpm dev
+
+```
+💡 Contributions are welcome! Feel free to open issues or submit PRs. 🚀
